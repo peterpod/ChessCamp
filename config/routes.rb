@@ -1,4 +1,7 @@
 ChessCamp::Application.routes.draw do
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
   get "user/new"
   get "user/create"
   get "user/update"

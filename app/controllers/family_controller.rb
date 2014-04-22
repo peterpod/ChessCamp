@@ -1,4 +1,5 @@
-class FamilyController < ApplicationController
+class FamiliyController < ApplicationController
+  before_action :set_family, only: [:show, :edit, :update, :destroy]
   def new
   end
 
