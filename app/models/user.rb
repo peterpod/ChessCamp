@@ -17,6 +17,19 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
 
 
+  ROLES = [['Administrator', :admin],['Instructor', :instructor]]
+
+  def role?(authorized_role)
+    return false if role.nil?
+    role.downcase.to_sym == authorized_role
+  end
+
+  # login by email address
+  def self.authenticate(username, password)
+    find_by_username(username).try(:authenticate, password)
+  end
+
+
   private
   def instructor_is_active_in_the_system
     is_active_in_system(:instructor)
