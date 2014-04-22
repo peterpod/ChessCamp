@@ -1,0 +1,29 @@
+<h3>Location Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @location.name %><br /><br />
+
+<strong>Street_1:&nbsp;&nbsp;</strong> 
+  <%= number_to_phone(@location.phone) %><br /><br />
+
+<strong>Street_2:&nbsp;&nbsp;</strong> 
+  <%= mail_to @location.email, @location.email, encode: "javascript" %><br /><br />
+
+<strong>City</strong><br />
+  <%= @location.city.nil? ? "N/A" : @location.city %><br /><br />
+
+<strong>State</strong><br />
+  <%= @location.state.nil? ? "N/A" : @location.state %><br /><br />
+
+<strong>Zip</strong><br />
+  <%= @location.zip.nil? ? "N/A" : @location.zip %><br /><br />
+
+<strong>Max Capacity</strong><br />
+  <%= @location.max_capacity %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @location.active ? "Yes" : "No" %><br /><br />
+
+
+
+<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
