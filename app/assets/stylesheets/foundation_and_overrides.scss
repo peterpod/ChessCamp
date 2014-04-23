@@ -54,7 +54,7 @@
 // $primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
-$success-color: #B5EBC9;
+// $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
 
@@ -240,7 +240,7 @@ $success-color: #B5EBC9;
 // We use these to control text style.
 // $alert-font-weight: normal;
 // $alert-font-size: rem-calc(13);
-$alert-font-color: #43AC6A;
+// $alert-font-color: #fff;
 // $alert-font-color-alt: scale-color($secondary-color, $lightness: -66%);
 
 // We use this for close hover effect.
@@ -319,7 +319,7 @@ $alert-font-color: #43AC6A;
 
 // We use this to control the display property.
 // $button-display: inline-block;
-$button-margin-bottom: rem-calc(0);
+// $button-margin-bottom: rem-calc(20);
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
@@ -762,7 +762,7 @@ $button-margin-bottom: rem-calc(0);
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-$panel-bg: scale-color(#B5E7F5, $lightness: 50%);
+// $panel-bg: scale-color(#fff, $lightness: -5%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1029,10 +1029,10 @@ $panel-bg: scale-color(#B5E7F5, $lightness: 50%);
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-$table-even-row-bg: #FAF2F0;
+// $table-even-row-bg: #f9f9f9  ;
 
 // These control the table cell border style
-$table-border-style: none;
+// $table-border-style: solid;
 // $table-border-size: 1px;
 // $table-border-color: #ddd;
 
@@ -1051,7 +1051,7 @@ $table-border-style: none;
 
 // These are for controlling the display and margin of tables
 // $table-display: table-cell;
-$table-margin-bottom: rem-calc(25);
+// $table-margin-bottom: rem-calc(20);
 
 //
 // TABS
@@ -1123,35 +1123,35 @@ $table-margin-bottom: rem-calc(25);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #F7EAE6;
+// $topbar-bg-color: #333;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: 50px;
-$topbar-margin-bottom: 20px;
+// $topbar-height: 45px;
+// $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: normal;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #F7EAE6;
-$topbar-dropdown-link-color: #000;
-// $topbar-dropdown-link-bg: #F7EAE6;
+// $topbar-dropdown-bg: #333;
+// $topbar-dropdown-link-color: #fff;
+// $topbar-dropdown-link-bg: #333;
 // $topbar-dropdown-link-weight: normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #000;
-$topbar-link-color-hover: #333;
+// $topbar-link-color: #fff;
+// $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-$topbar-link-font-size: rem-calc(18);
+// $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #FAF2F0;
+// $topbar-link-bg-hover: #272727  ;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
@@ -1192,69 +1192,5 @@ $topbar-link-bg-hover: #FAF2F0;
 //
 
 // $include-html-visibility-classes: $include-html-classes;
-
-img.left {
-  float: left;
-  padding-right: 15px;
-  padding-bottom: 10px;
-  border: 0px;
-}
-
-img.right {
-  float: right;
-  padding-left: 15px;
-  padding-bottom: 10px;
-}
-
-a img {
-  /*float: left;*/
-  padding-right: 0px;
-  padding-bottom: 0px;
-  border: 0px;
-  text-decoration: none;
-}
-
-#footer {
-  margin:0;
-  padding:10px 15px 5px 15px;
-  text-align:center;
-  font-size: 80%;
-}
-
-#copy {
-  margin: 7px auto;
-  color:black;
-  text-align:center;
-  font-size:70%;
-}
-
-#copy a {
-  text-decoration: none;
-}
-
-#copy a:hover {
-  text-decoration: underline;
-}
-
-.supertiny{
-  font-size:5px;
-  font-family:Verdana, Arial, Helvetica, sans-serif;
-  text-decoration:none;
-}
-
-.table {
-  border-collapse:collapse;
-}
-
-#past {
-  background-color: #FAF2F0;
-  border-color: #F7EAE6;
-
-}
-
-select.date { width: 95px; }
-#camp_time_slot, #camp_max_students, #camp_cost, #camp_curriculum_id { width: 290px; }
-#instructor_bio { height: 7rem; }
-#curriculum_description { height: 7rem; }
 
 @import 'foundation';

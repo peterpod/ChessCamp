@@ -1,46 +1,15 @@
 ChessCamp::Application.routes.draw do
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  get "user/new"
-  get "user/create"
-  get "user/update"
-  get "user/edit"
-  get "user/destroy"
-  get "user/index"
-  get "user/show"
-  get "student/new"
-  get "student/create"
-  get "student/update"
-  get "student/edit"
-  get "student/destroy"
-  get "student/index"
-  get "student/show"
-  get "registration/new"
-  get "registration/create"
-  get "registration/update"
-  get "registration/edit"
-  get "registration/destroy"
-  get "registration/index"
-  get "registration/show"
-  get "family/new"
-  get "family/create"
-  get "family/update"
-  get "family/edit"
-  get "family/destroy"
-  get "family/index"
-  get "family/show"
-  get "location/new"
-  get "location/create"
-  get "location/update"
-  get "location/edit"
-  get "location/destroy"
-  get "location/index"
+
   get "location/show"
   # generated routes
   resources :curriculums
   resources :instructors
   resources :camps
+  resources :families
+  resources :students
+  resources :locations
+  resources :users
+  resources :registrations
 
   # semi-static routes
   get 'home', to: 'home#index', as: :home

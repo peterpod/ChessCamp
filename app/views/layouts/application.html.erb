@@ -4,29 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "A&M Chess Camps" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%# javascript_include_tag "application" %> 
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <%= render :partial => "partials/nav" %>
-    
-    <div class="row">
-      <div class="small-12 columns" id="main_content">
-        <%= render :partial => "partials/flash" %>
-        <%= yield %>
-      </div>
-    </div>
-    <footer>
-      <div class="row">
-        <div class="small-12 columns" id="footer">
-          <%= render partial: 'partials/footer' %>
-        </div>
-      </div> 
-    </footer> 
+
+    <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
