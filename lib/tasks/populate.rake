@@ -218,7 +218,6 @@ namespace :db do
     dates = [[Date.new(2014,6,16),Date.new(2014,6,20)],
              [Date.new(2014,6,23),Date.new(2014,6,27)],
              [Date.new(2014,7,7),Date.new(2014,7,11)],
-             [Date.new(2014,7,14),Date.new(2014,7,18)],
              [Date.new(2014,7,21),Date.new(2014,7,25)],
              [Date.new(2014,7,28),Date.new(2014,8,1)],
              [Date.new(2014,8,4),Date.new(2014,8,8)],
