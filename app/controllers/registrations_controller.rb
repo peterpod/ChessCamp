@@ -2,8 +2,8 @@ class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
   
   def index
-    @deposit_registrations = Registration.deposit_only.alphabetical.paginate(:page => params[:page]).per_page(10)
-    @full_registrations = Registration.paid.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @deposit_registrations = Registration.deposit_only.paginate(:page => params[:page]).per_page(10)
+    @full_registrations = Registration.paid.paginate(:page => params[:page]).per_page(10)
   end
 
   def show

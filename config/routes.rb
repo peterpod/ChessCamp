@@ -1,6 +1,5 @@
 ChessCamp::Application.routes.draw do
 
-  get "location/show"
   # generated routes
   resources :curriculums
   resources :instructors
