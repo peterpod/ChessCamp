@@ -3,11 +3,11 @@
   <%= @student.proper_name %><br /><br />
 
 <strong>Family:&nbsp;&nbsp;</strong> 
-
+  <%= @student.family.family_name %>
 <br /><br />
 
 <strong>Date of Birth:&nbsp;&nbsp;</strong> 
-
+	<%= @student.date_of_birth.strftime("%B %d, %Y") %>
 <br /><br />
 
 <strong>Rating</strong>

@@ -2,16 +2,16 @@
    
    <h3><%= controller.action_name.capitalize %> Student</h3>
     
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :family_id %>
-    <%= f.input :date_of_birth %>
+    <%= f.input :first_name, label: "First Name" %>
+    <%= f.input :last_name, label: "Last Name" %>
+    <%= f.input :family_id, label: "Family", collection: Family.active.alphabetical, include_blank: true, input_html: {class: "avg"} %>
+    <%= f.input :date_of_birth, label: "Date of Birth", as: :string, :input_html => {:class => "avg datepicker"} %>
     <%= f.input :rating %>
     <%= f.input :active %>
 
     <div class="form-actions">
       <%= f.submit nil, class: 'button radius' %>
-      <%= link_to 'Back to list of instructors', instructors_path, :class => 'button secondary radius' %>
+      <%= link_to 'Back to list of students', students_path, :class => 'button secondary radius' %>
     </div>
 
 <% end %>

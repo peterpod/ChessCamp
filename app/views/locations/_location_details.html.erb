@@ -3,10 +3,10 @@
   <%= @location.name %><br /><br />
 
 <strong>Street_1:&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@location.phone) %><br /><br />
+  <%= @location.street_1 %><br /><br />
 
 <strong>Street_2:&nbsp;&nbsp;</strong> 
-  <%= mail_to @location.email, @location.email, encode: "javascript" %><br /><br />
+  <%= mail_to @location.street_2.nil? ? "N/A" : @location.street_2 %><br /><br />
 
 <strong>City</strong><br />
   <%= @location.city.nil? ? "N/A" : @location.city %><br /><br />
