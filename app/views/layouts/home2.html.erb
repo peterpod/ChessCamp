@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav>
+        <%= render partial: 'partials/nav' %>
+      </nav>    
+      
+      <div class="row">
+        <div id="main_content"> 
+           <%= yield %>
+           <%= javascript_include_tag "application" %>
+        </div>      
+  
+      </div>
+      <div class="push"></div>
+      </div>
+      <div class="push"></div>
+      </div>
+
+      
+
+    <div id="footer">
+          <%= render partial: 'partials/footer' %>
+    </div>      
+  </body>
+</html>

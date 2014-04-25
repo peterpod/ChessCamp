@@ -13,3 +13,323 @@
 
  *= require_tree .
  */
+
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('fonts/Open-Sans-Regular'),
+  url('stylesheets/fonts/OpenSans-Regular.woff') format('woff'),
+  url('stylesheets/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+ 
+
+* {
+margin: 0;
+}
+
+html, body {
+height: 100%;
+}
+
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -8em;
+}
+
+body {
+  background-color: #4B7399;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+#homesocial {
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none; }
+#homesocial li {
+  float: left; }
+
+#nav {
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none; 
+  color: #666666;
+padding: 3px 6px;
+}
+
+#nav li {
+  float: left; 
+  color: #666666;
+padding: 3px 6px;
+}
+
+#nav li a{
+  float: left; 
+  color: #666666;
+padding: 3px 6px;
+}
+
+#homeline{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#header{
+  
+  background-image: url('header.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer{
+  background-color: #333333;
+}
+
+#footer{
+  background-color: #333333;
+}
+
+
+
+a img {
+  border: none;
+}
+-
+a:hover {
+  color: #3A91FF;
+	text-decoration: underline;
+}
+
+.footer, .push {
+  clear: both;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#error_explanation {
+	color: #EB0202;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+.field {
+	padding: 4px 0px 4px 0px;
+}
+
+.actions {
+	padding: 15px 0px 4px 0px;
+}
+
+td, th {
+	padding: 2px 8px 2px 8px;
+}
+
+li {
+	padding: 2px 0px 2px 0px;
+}
+
+ul.options {
+	border: solid 1px #4B7399;
+	width: 200px;
+	padding: 10px 10px 10px 30px;
+  background-color: #DEFFFA;
+}
+
+.paginate {
+	font-size: 85%;
+}
+
+#main_content {
+  padding: 10px 10px 10px;
+  width: auto;
+}
+
+#text{
+  width:520px;
+}
+
+/********** FLASH MSGS ********/
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+	color: #008000;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+	color: #800000;
+}
+
+img.left {
+  float: left;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  height:30%;
+  width:30%;
+  border: 0px;
+}
+
+img.right {
+  float: right;
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+a img {
+  /*float: left;*/
+  padding-right: 0px;
+  padding-bottom: 0px;
+  border: 0px;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+color:#666;
+}
+
+.push{
+  height:130px;
+}
+
+ table {
+    border-collapse:collapse;
+  }
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit
+}
+
+
+tbody tr:hover {
+background: #FBF7E0 repeat-x top !important;
+}
+
+td, th {
+    display: table-cell;
+    align: center;
+    vertical-align: middle;
+}
+
+
+#curriculum_name{
+  width:200px;
+}
+
+#curriculum_description, #instructor_bio{
+  min-height: 200px;
+  width:300px;
+}
+#curriculum_min_rating{
+  width:70px;
+}
+
+ #curriculum_max_rating{
+  width:70px;
+}
+
+#instructor_first_name{
+  width:90px;
+}
+#instructor_last_name{
+  width:90px;
+}
+
+#instructor_email{
+  width:200px;
+}
+#instructor_phone{
+  width:200px;
+}
+
+#camp_curriculum_id{
+  width:200px;
+}
+#camp_cost{
+  width:80px;
+}
+
+#camp_start_date_1i, #camp_start_date_2i,#camp_start_date_3i,
+#camp_end_date_1i,#camp_end_date_2i,#camp_end_date_3i{
+  width:120px;
+}
+
+#camp_time_slot{
+  width:120px;
+}
+#camp_max_students{
+  width:30px;
+}

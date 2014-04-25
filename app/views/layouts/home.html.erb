@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav>
+        <%= render partial: 'partials/nav' %>
+      </nav>    
+      
+      <header>
+       <%= render partial: 'partials/header' %>
+      </header>
+      
+      <div class="row centered-text">
+        <div id="main_content"> 
+          <div class="large-12 centered-columns">
+            <h2>&nbsp;Get Started with ChessCamp</h2>
+            <h4 class="subheader">&nbsp;&nbsp;&nbsp;It's now or never</h4>
+            <br>
+          </div>
+          <div class="medium-4 large-4 columns">
+            <a href="#"> 
+            <%= link_to(image_tag('crown2.png'), camps_path) %>
+              <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View our Camps</h4>
+            </a>
+            <p>
+
+            </p>
+          </div>
+          <div class="medium-4 large-4 columns">
+            <a href="#">
+              <%= link_to(image_tag('pawn.png'), curriculums_path) %>
+              <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View Curriculums</h4>
+            </a>
+            <p>
+        
+            </p>
+          </div>
+          <div class="medium-4 large-4 columns">
+            <a href="#">
+              <%= link_to(image_tag('rook.png'), instructors_path) %>
+              <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View our Instructors
+
+            </a>
+            <p>
+              
+            </p>
+          </div>     
+        <hr class="homeline">
+        <br>
+        <div class="row centered-text">
+          <div class="medium-3 large-3 column supporticons">
+            <img src="http://foundation.zurb.com/assets/img/learn/features/customizable.svg">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;Get Started</h3>
+            <p>
+            Sign up for ChessCamp via our simple easy to use registration system. 
+            </p>
+          </div>
+          <div class="medium-3 large-3 column supporticons">
+            <img src="http://foundation.zurb.com/assets/img/learn/features/training.svg">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get Active</h3>
+            <p>
+            Try something new. ChessCamp is a great way to get engaged and 
+            be excited about games like chess
+            </p>
+          </div>
+          <div class="medium-3 large-3 column supporticons">
+            <img src="http://foundation.zurb.com/assets/img/learn/features/semantic.svg">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get Better</h3>
+            <p>
+            ChessCamp guarantee's your students will learn more, get better
+            and improve in the tactics and fundamentals of chess-Thats our Policy 
+            </p>
+          </div>
+          <div class="medium-3 large-3 column supporticons">
+            <img src="http://foundation.zurb.com/assets/img/learn/features/responsive.svg">
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get involved</h3>
+            <p>
+            Give back to the world of chess! ChessCamp can always use additional faculty, supervisors and instructors. Let us know if you are interested.
+            </p>
+          </div>
+        </div>
+        </div> 
+      </div>
+
+      <div class="push"></div>
+    </div>
+
+    <div id="footer">
+          <%= render partial: 'partials/footer' %>
+    </div>      
+  </body>
+</html>
