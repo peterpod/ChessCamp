@@ -9,6 +9,13 @@ ChessCamp::Application.routes.draw do
   resources :locations
   resources :users
   resources :registrations
+  resources :sessions
+
+  # Authentication routes
+  get 'user/edit' => 'users#edit', as: :edit_current_user
+  get 'signup' => 'users#new', as: :signup
+  get 'logout' => 'sessions#destroy', as: :logout
+  get 'login' => 'sessions#new', as: :login
 
   # semi-static routes
   get 'home', to: 'home#index', as: :home
