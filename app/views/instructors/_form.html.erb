@@ -1,17 +1,26 @@
-<%= simple_form_for(@instructor, html: { class: 'form-horizontal' }) do |f| %>
-   
-   <h3><%= controller.action_name.capitalize %> Instructor</h3>
-    
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :phone, as: :string %>
-    <%= f.input :email %>
-    <%= f.input :active %>
-    <%= f.input :bio, input_html: { rows: 6 } %>
+<%= simple_nested_form_for @instructor, :html => { :class => 'form-horizontal' } do |instructor_form| %>
+   <div class="row">
+      <div class="span7">
+        <fieldset>
+          <legend><%= controller.action_name.capitalize %> Instructor</legend>
+          <%= render :partial => "instructor_fields", :locals => { :f => instructor_form } %>
+        </fieldset>
+      </div>
 
-    <div class="form-actions">
-      <%= f.submit nil, class: 'button radius' %>
-      <%= link_to 'Back to list of instructors', instructors_path, :class => 'button secondary radius' %>
+    <div class="span5">
+      <legend>User Login</legend>
+        <div>
+          <%= instructor_form.simple_fields_for :users do |user_form| %>
+            <%= render :partial => "user_fields", :locals => { :f => user_form } %>
+          <% end %> 
+          <p>
+            <br /><%= instructor_form.link_to_add("Add User", :user, :class => 'button tiny') %>
+          </p>
+        </div> 
+      </div>
     </div>
-
-<% end %>
+    <div class="form-actions">
+      <%= instructor_form.submit nil, :class => 'button radius' %>
+      <%= link_to 'Cancel', instructors_path, :class => 'button secondary' %>
+    </div>
+  <% end %>
