@@ -37,7 +37,7 @@ height: 100%;
 min-height: 100%;
 height: auto !important;
 height: 100%;
-margin: 0 auto -8em;
+margin: 0 auto -10em;
 }
 
 body {
@@ -332,4 +332,12 @@ td, th {
 }
 #camp_max_students{
   width:30px;
+}
+
+#username{
+  width:240px;
+}
+
+#password{
+  width:240px;
 }
