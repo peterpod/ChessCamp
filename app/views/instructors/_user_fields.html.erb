@@ -4,12 +4,12 @@
       <%= f.link_to_remove("x") %>
       <!-- fields -->
       <%= f.input :username %>
-	  <%= f.input :instructor_id %>
 	  		
 	  <%= f.input :password %>
 	  <%= f.input :password_confirmation %>
 	
 	  <%= f.input :active %>
+	  </br>
 	  <%= f.input :role, :collection => User::ROLES, :prompt => true %>
     </div>
   </div>
