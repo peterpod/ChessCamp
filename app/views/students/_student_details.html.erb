@@ -6,12 +6,19 @@
   <%= @student.family.family_name %>
 <br /><br />
 
-<strong>Date of Birth:&nbsp;&nbsp;</strong> 
-	<%= @student.date_of_birth.strftime("%B %d, %Y") %>
+<strong>Age:&nbsp;&nbsp;</strong> 
+	<%= @student.age %>
+	</br>
+<strong>Date of Birth:</strong>
+	<%= @student.date_of_birth.strftime("%-m/%d/%Y") %>
 <br /><br />
 
 <strong>Rating</strong>
-  <%= @student.rating %><br /><br />
+  <% if @student.rating < 100 %>
+  	<%= "Unrated"%><br /><br />
+  <% else %>
+  	<%= @student.rating %><br /><br />
+  <% end %>
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @student.active ? "Yes" : "No" %><br /><br />
