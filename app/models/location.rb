@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
   validates :state, inclusion: { in: STATES_LIST.map{|a,b| b}, message: "is not valid state", allow_blank: true }
   validates :zip, presence: true, format: { with: /\A\d{5}\z/, message: "should be five digits long", allow_blank: true }
   validates :max_capacity, presence: true, numericality: { only_integer: true, greater_than: 0, allow_blank: true }
-  
+
   # scopes
   scope :alphabetical, -> { order('name') }
   scope :active, -> { where(active: true) }
@@ -20,6 +20,13 @@ class Location < ActiveRecord::Base
   # callbacks
   before_destroy :verify_that_never_used_for_camps
   before_validation :get_location_coordinates
+
+  def create_map_link(zoom=12,width=800,height=800)
+    markers = ""; i = 1
+      markers += "&markers=color:red%7Ccolor:red%7Clabel:#{i}%7C#{self.latitude},#{self.longitude}"
+      i += 1
+        map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  end
 
   private
   def verify_that_never_used_for_camps

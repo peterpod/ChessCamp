@@ -2,26 +2,26 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @location.name %><br /><br />
 
-<strong>Street_1:&nbsp;&nbsp;</strong> 
-  <%= @location.street_1 %><br /><br />
+<strong>Address&nbsp;&nbsp;</strong> <br/>
+  <%= @location.street_1 %><br />
+  <% if !@location.street_2.nil? %>
+  	<%= @location.street_2 %>
+  <% end %>
+  <br/>
+  <%= @location.city %>, <%= @location.state %> <%= @location.zip %>
+  <br/>
+  <br>
 
-<strong>Street_2:&nbsp;&nbsp;</strong> 
-  <%= mail_to @location.street_2.nil? ? "N/A" : @location.street_2 %><br /><br />
-
-<strong>City</strong><br />
-  <%= @location.city.nil? ? "N/A" : @location.city %><br /><br />
-
-<strong>State</strong><br />
-  <%= @location.state.nil? ? "N/A" : @location.state %><br /><br />
-
-<strong>Zip</strong><br />
-  <%= @location.zip.nil? ? "N/A" : @location.zip %><br /><br />
-
-<strong>Max Capacity</strong><br />
+<strong>Maximum Capacity</strong><br />
   <%= @location.max_capacity %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %><br /><br />
+
+<strong>Map</strong><br/>
+<%= image_tag @location.create_map_link %>
+</br>
+<br>
 
 
 
