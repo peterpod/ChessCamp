@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def create
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user = current_user
       flash[:notice] = "#{@user.proper_name} is updated."
       redirect_to @user
     else
