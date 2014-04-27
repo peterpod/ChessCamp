@@ -16,10 +16,10 @@ module ChessCampHelpers
     # determine the set of ids that might be valid
     if klass.respond_to?(:active)
       # if there is an active scope, take advantage of it
-      all_active = klass.active.all.map{|k| k.id}
+      all_active = klass.active.to_a.map{|k| k.id}
     else
       # if not, consider all the records as 'active'
-      all_active = klass.all.map{|k| k.id}
+      all_active = klass.to_a.map{|k| k.id}
     end
 
     # test to see if the id in question is in the set of valid ids 

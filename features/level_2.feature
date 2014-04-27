@@ -4,6 +4,7 @@ Feature: Manage curriculums
   So I can use curriculums to create camp options
 
   Background:
+    Given a logged-in admin
     Given a large set of curriculums and camps
   
   # READ METHODS
@@ -74,12 +75,12 @@ Feature: Manage curriculums
     And I should see "A nice gambit to use against 1. d4"
     And I should see "900 - 1900"
   
-  Scenario: Creating a new event fails without a name
+  Scenario: Creating a new curriculum fails without a name
     When I go to the new curriculum page
     And I press "Create Curriculum"
     Then I should see "can't be blank"
   
-  Scenario: Creating a new event fails without unique name
+  Scenario: Creating a new curriculum fails without unique name
     When I go to the new curriculum page
     And I fill in "curriculum_name" with "endgame principles"
     And I press "Create Curriculum"

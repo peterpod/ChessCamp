@@ -4,6 +4,7 @@ Feature: Manage camps
   So I can have camps students can register for
 
   Background:
+    Given a logged-in admin
     Given a large set of camps and instructors
   
   # READ METHODS
@@ -67,6 +68,7 @@ Feature: Manage camps
   
   # CREATE METHODS
   Scenario: Creating a new camp is successful
+    Given all other locations
     When I go to the new camp page
     And I select "Endgame Principles" from "camp_curriculum_id"
     And I fill in "camp_cost" with "175"
@@ -78,6 +80,7 @@ Feature: Manage camps
     And I select "5" from "camp_end_date_3i"
     And I select "2014" from "camp_end_date_1i"
     And I select "Morning" from "camp_time_slot"
+    And I select "ACAC" from "camp_location_id"
     And I press "Create Camp"
     Then I should see "was added to the system"
     And I should see "Camp Details"
@@ -96,6 +99,7 @@ Feature: Manage camps
     And I select "5" from "camp_end_date_3i"
     And I select "2014" from "camp_end_date_1i"
     And I select "Morning" from "camp_time_slot"
+    And I select "North Side" from "camp_location_id"
     And I press "Create Camp"
     Then I should see "can't be blank"
   
@@ -110,6 +114,7 @@ Feature: Manage camps
     And I select "1" from "camp_end_date_3i"
     And I select "2014" from "camp_end_date_1i"
     And I select "Morning" from "camp_time_slot"
+    And I select "North Side" from "camp_location_id"
     And I press "Create Camp"
     Then I should see "must be on or after 2014-09-05"
 
@@ -125,6 +130,7 @@ Feature: Manage camps
     And I select "1" from "camp_end_date_3i"
     And I select "2014" from "camp_end_date_1i"
     And I select "Morning" from "camp_time_slot"
+    And I select "North Side" from "camp_location_id"
     And I press "Create Camp"
     Then I should see "was added to the system"
     And I should see "Camp Details"

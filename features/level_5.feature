@@ -4,11 +4,12 @@ Feature: Manage camp instructor assignments
   So I can be sure camps are staffed properly
 
   Background:
+    Given a logged-in admin
     Given a large set of camps and instructors
   
   Scenario: Add an instructor to a camp
     When I go to edit camp1's page
-    And I check "camp_instructor_ids_5"
+    And I check "camp_instructor_ids_6"
     And I press "Update Camp"
     Then I should see "was revised in the system"
     And I should see "Patrick"
@@ -16,16 +17,16 @@ Feature: Manage camp instructor assignments
 
   Scenario: Remove an instructor from a camp
     When I go to edit camp1's page
-    And I uncheck "camp_instructor_ids_2"
+    And I uncheck "camp_instructor_ids_3"
     And I press "Update Camp"
     Then I should see "was revised in the system"
-    And I should not see "Alex"
+    And I should not see "Heimann, Alex"
     And I should see "Mark"
 
   Scenario: Remove all instructors from a camp
     When I go to edit camp1's page
+    And I uncheck "camp_instructor_ids_3"
     And I uncheck "camp_instructor_ids_2"
-    And I uncheck "camp_instructor_ids_1"
     And I press "Update Camp"
     Then I should see "was revised in the system"
     And I should not see "Alex"

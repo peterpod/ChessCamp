@@ -4,6 +4,7 @@ Feature: Manage instructors
   So I can use this to later assign instructors to camps
 
   Background:
+    Given a logged-in admin
     Given a large set of camps and instructors
   
   # READ METHODS
@@ -16,7 +17,6 @@ Feature: Manage instructors
     And I should see "Heimann, Alex"
     And I should see "412-268-2323"
     And I should see "Bohn, Austin"
-    And I should see "Levin, Noah"
     And I should see "3"
     And I should not see "true"
     And I should not see "True"
@@ -100,6 +100,8 @@ Feature: Manage instructors
   Scenario: Updating an existing instructor is successful
     When I go to edit Patrick's page
     And I fill in "instructor_email" with "pdust@cmu.edu"
+    And I fill in "instructor_user_attributes_password" with "secret" 
+    And I fill in "instructor_user_attributes_password_confirmation" with "secret"
     And I press "Update Instructor"
     Then I should see "Patrick Dustmann was revised in the system"
     And I should see "pdust@cmu.edu"

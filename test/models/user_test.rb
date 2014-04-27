@@ -29,16 +29,6 @@ class UserTest < ActiveSupport::TestCase
       delete_users
     end
 
-    should "verify that the instructor is active in the system" do
-      # test the inactive instructor
-      rachel_user = FactoryGirl.build(:user, instructor: @rachel)
-      deny rachel_user.valid?
-      # test the nonexistent instructor
-      dusty = FactoryGirl.build(:instructor, first_name: "Dusty")
-      dusty_user = FactoryGirl.build(:user, instructor: dusty, username: "dusty")
-      deny dusty_user.valid?
-    end
-
     should "require users to have unique, case-insensitive usernames" do
       assert_equal "mheimann", @mark_user.username
       # try to switch to Alex's username 'tank'
@@ -67,5 +57,11 @@ class UserTest < ActiveSupport::TestCase
       bad_user = FactoryGirl.build(:user, username: "tank", instructor: @alex, password: "no")
       deny bad_user.valid?
     end
+
+    should "have a role? method to use in authorization" do
+      assert @mark_user.role?(:admin)
+      deny @mark_user.role?(:instructor)
+    end
+
   end
 end
