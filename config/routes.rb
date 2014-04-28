@@ -24,6 +24,6 @@ ChessCamp::Application.routes.draw do
   get 'home/privacy', to: 'home#privacy', as: :privacy
 
   # set the root url
-  root to: 'home#index'
+  root :to => 'home#index'  
 
 end

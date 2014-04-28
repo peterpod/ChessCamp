@@ -126,9 +126,15 @@ a:hover {
   margin-top: 20px;
 }
 
+.alert-box {
+  margin: 0px;
+}
+
+.alert-box success radius{
+  margin: 0px;
+}
+
 #flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
 }
 
 #flash_notice {
@@ -153,8 +159,6 @@ a:hover {
   width: 400px;
   border: 2px solid #CF0000;
   padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
   background-color: #f0f0f0;
   font-size: 12px;
 }
@@ -162,7 +166,6 @@ a:hover {
 .error_messages h2 {
   text-align: left;
   font-weight: bold;
-  padding: 5px 10px;
   font-size: 12px;
   margin: 0;
   background-color: #c00;
@@ -215,8 +218,6 @@ ul.options {
 
 /********** FLASH MSGS ********/
 #flash_notice, #flash_error, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px;
 }
 
 #flash_notice {
