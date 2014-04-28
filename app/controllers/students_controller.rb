@@ -2,8 +2,8 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   
  def index
-    @all_students = Student.alphabetical.paginate(:page => params[:page]).per_page(10)
-    @active_students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @all_students = Student.alphabetical.paginate(:page => params[:page]).per_page(20)
+    @active_students = Student.active.alphabetical.paginate(:page => params[:page]).per_page(20)
     @inactive_students = Student.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
