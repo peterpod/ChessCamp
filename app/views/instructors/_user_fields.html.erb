@@ -10,6 +10,6 @@
 	
 	  <%= f.input :active %>
 	  </br>
-	  <%= f.input :role, :collection => User::ROLES, :prompt => true %>
+	  <%= f.input :role, collection: [['Administrator','admin'],['Instructor','instructor']], :prompt => true %>
     </div>
   </div>

@@ -8,6 +8,10 @@
 <strong>Email:&nbsp;&nbsp;</strong> 
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
+<% if !@instructor.user.role.nil? %>
+  <%= "Role: #{@instructor.user.role}" %>
+<% end %><br /><br />
+
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @instructor.active ? "Yes" : "No" %><br /><br />
 

@@ -20,8 +20,7 @@ class Instructor < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :needs_bio, -> { where('bio IS NULL') }
-  # scope :needs_bio, -> { where(bio: nil) }  # this also works...
-
+  
   # class methods
   def self.for_camp(camp)
     # the 'instructive way'... (which I told you if you asked me for help)
@@ -50,6 +49,5 @@ class Instructor < ActiveRecord::Base
       self.user.active = false
       self.user.save
     end
-  end
-  
+  end  
 end
