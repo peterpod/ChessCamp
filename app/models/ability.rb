@@ -22,7 +22,37 @@ class Ability
       can :update, User do |u|  
         u.id == user.id
       end
+
+      # they can add locations
+      can :create, Location
       
+      # they can edit locations
+      can :update, Location
+
+       # they can add camps
+      can :create, Camp
+      
+      # they can edit camps
+      can :update, Camp      
+
+       # they can add students
+      can :create, Student
+      
+      # they can edit students
+      can :update, Student
+
+       # they can add families
+      can :create, Family
+      
+      # they can edit families
+      can :update, Family
+
+       # they can read students in his camp
+      can :read, Student do |this_student|  
+        camp_students = user.camps.map{|c| c.students.map(&:id)}.flatten
+        camp_students.include? this_student.id 
+      end
+
       # they can read their own camps' data
       can :read, Camp do |this_camp|  
         my_camps = user.camps.map(&:id)
