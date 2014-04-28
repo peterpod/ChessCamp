@@ -4,7 +4,7 @@
     
     <%= f.input :first_name, label: "First Name" %>
     <%= f.input :last_name, label: "Last Name" %>
-    <%= f.select(:family_id, Family.active.alphabetical.map{ |f| f.family_name }) %>
+    <%= f.input :family_id, collection: Family.active.alphabetical, label_method: :family_name, include_blank: true %>
     <%= f.input :date_of_birth, label: "Date of Birth", as: :string, :input_html => {:class => "avg datepicker"} %>
     <%= f.input :rating %>
     <%= f.input :active %>
