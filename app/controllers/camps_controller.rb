@@ -9,6 +9,7 @@ class CampsController < ApplicationController
 
   def show
     @instructors = @camp.instructors.alphabetical.to_a
+    @registrations = @camp.students.alphabetical.to_a
   end
 
   def new
@@ -21,7 +22,7 @@ class CampsController < ApplicationController
   def create
     @camp = Camp.new(camp_params)
     if @camp.save
-      redirect_to @camp, notice: "The camp #{@camp.name} (on #{@camp.start_date.strftime('%m/%d/%y')}) was added to the system."
+      redirect_to @camp, notice: "The camp #{@camp.name} (on #{@camp.start_date.strftime('%m/%d/%y')}) was added to the system"
     else
       render action: 'new'
     end

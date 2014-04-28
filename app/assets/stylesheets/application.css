@@ -320,7 +320,7 @@ td, th {
   width:200px;
 }
 #camp_cost{
-  width:80px;
+  width:100px;
 }
 
 #camp_start_date_1i, #camp_start_date_2i,#camp_start_date_3i,
@@ -332,7 +332,7 @@ td, th {
   width:120px;
 }
 #camp_max_students{
-  width:30px;
+  width:60px;
 }
 
 #username{

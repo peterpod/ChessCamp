@@ -9,7 +9,7 @@
     <th></th>
   </tr>
 
-<% @active_families.each do |family| %>
+<% @all_families.each do |family| %>
   <tr>
     <td><%= link_to family.family_name, family_path(family) %></td>
     <td><%= family.parent_first_name %></td>

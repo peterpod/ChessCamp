@@ -1,0 +1,16 @@
+<% unless @registrations.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <h5>Registrations (<%= @registrations.size %>)</h5>
+    <ul class="side-nav">
+      <% @registrations.each do |registration| %>
+        <li><%= link_to registration.name, student_path(registration) %> Rating: <%= registration.rating %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Registrations</h5>
+  </div>
+<% end %>
