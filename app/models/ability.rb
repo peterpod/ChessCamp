@@ -47,14 +47,14 @@ class Ability
       end
 
     else
-      # guests can read home page
-      can :read, Home
-
+      #guests can view upcoming camps
+      can :show, Camp
       #guests can view upcoming camps
       can :index, Camp
-
       #guests can see camps details page, address and map.
       can :read, Camp
+
+      can :read, Instructor
     end
   end
 end

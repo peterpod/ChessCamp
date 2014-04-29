@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   authorize_resource
 
   def index
-     @users = User.instructor.proper_name.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @upcoming_camps = @user.instructor.camps.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
