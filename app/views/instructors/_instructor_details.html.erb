@@ -8,15 +8,13 @@
 <strong>Email:&nbsp;&nbsp;</strong> 
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
-<% unless @instructor.user.role.nil? %>
-  <strong>Role</strong>
-  <%= "#{@instructor.user.role}" %>
-<% end %><br /><br />
+<% if @instructor.user != nil && current_user.role == "admin" %>
+    <strong>Role</strong>
+    <%= "#{@instructor.user.role}" %>
+    <strong>Username</strong>
+    <%= "#{@instructor.user.username}" %>
+<%end%>
 
-<% unless @instructor.user.username.nil? %>
-  <strong>Username</strong>
-  <%= "#{@instructor.user.username}" %>
-<% end %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @instructor.active ? "Yes" : "No" %><br /><br />

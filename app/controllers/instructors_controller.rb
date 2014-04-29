@@ -36,7 +36,7 @@ class InstructorsController < ApplicationController
 
   def update
     if @instructor.update(instructor_params)
-      redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system"
+      redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
     else
       render action: 'edit'
     end
