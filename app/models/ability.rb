@@ -18,6 +18,7 @@ class Ability
       can :show, User do |u|  
         u.id == user.id
       end
+
       # they can update their own profile
       can :update, User do |u|  
         u.id == user.id
@@ -25,13 +26,13 @@ class Ability
 
       # they can read students in his camp
       can :read, Student do |this_student|  
-        camp_students = user.camp.map{|c| c.students.map(&:id)}.flatten
+        camp_students = user.instructor.camps.map{|c| c.students.map(&:id)}.flatten
         camp_students.include? this_student.id 
       end
 
       # they can read their own camps' data
       can :read, Camp do |this_camp|  
-        my_camps = user.camp.map(&:id)
+        my_camps = user.instructor.camps.map(&:id)
         my_camps.include? this_camp.id 
       end
 
