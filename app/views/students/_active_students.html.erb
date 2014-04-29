@@ -8,7 +8,7 @@
     <th></th>
   </tr>
 
-<% @active_students.each do |student| %>
+<% @all_students.each do |student| %>
   <tr>
     <td><%= link_to student.name, student_path(student) %></td>
     <td>
