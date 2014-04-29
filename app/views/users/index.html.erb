@@ -1,13 +1,13 @@
 <div class="row">
   <div class="small-8 columns">
     <% if current_user.role == "instructor" %>
-      <%= render :partial => "partials/instructor_dashboard" %>
+      <%= render :partial => "instructor_dashboard" %>
     <% else %>
       <%= render :partial => "admin_dashboard" %>
     <% end %>
   </div>
   <div class="small-1 columns">&nbsp;</div>
   <div class="small-4 columns">
-      <%= render :partial => "user_details" %>
+    
   </div>
 </div>
