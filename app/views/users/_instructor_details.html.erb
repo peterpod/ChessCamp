@@ -1,0 +1,25 @@
+<h3>Instructor Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @user.instructor.proper_name %><br /><br />
+
+<strong>Phone:&nbsp;&nbsp;</strong> 
+  <%= number_to_phone(@user.instructor.phone) %><br /><br />
+
+<strong>Email:&nbsp;&nbsp;</strong> 
+  <%= mail_to @user.instructor.email, @user.instructor.email, encode: "javascript" %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @user.instructor.active ? "Yes" : "No" %><br /><br />
+
+<strong>Biography</strong><br />
+  <%= @user.instructor.bio.nil? ? "N/A" : @user.instructor.bio %><br /><br />
+
+  <p>
+<% unless @user.instructor.picture_url.nil? %>
+    <p><%= image_tag @user.instructor.picture_url %></p>
+  <% end %>
+</p>
+
+
+
+<%= link_to "Edit this User", edit_user_path(@user), class: "button tiny radius" %>&nbsp;&nbsp;

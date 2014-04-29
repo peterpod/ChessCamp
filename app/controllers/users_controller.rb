@@ -29,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user = current_user
-      flash[:notice] = "#{@user.proper_name} is updated."
+    if @user.update_attributes(user_params)
+      flash[:notice] = "#{@user.instructor.proper_name} was revised in the system"
       redirect_to @user
     else
       render :action => 'edit'

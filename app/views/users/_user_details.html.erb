@@ -1,0 +1,15 @@
+<div class="panel clearfix">
+<h3>User Settings</h3><br />
+<strong>Username&nbsp;&nbsp;</strong> 
+  <%= @user.username %><br /><br />
+
+<strong>Password&nbsp;&nbsp;</strong> <br/>
+  <%= @user.password %>
+  <br/>
+
+<strong>Role</strong><br />
+  <%= @user.role %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @user.active ? "Yes" : "No" %><br /><br />
+</div>

@@ -20,8 +20,8 @@ class Ability
       end
 
       # they can update their own profile
-      can :edit, Instructor do |i|  
-        i.id == user.instructor.id
+      can :edit, User do |i|  
+        i.id == user.id
       end 
 
       # they can update their own profile
