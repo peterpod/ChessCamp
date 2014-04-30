@@ -15,6 +15,11 @@ class Ability
       can :index, User
       
       # they can read their own profile
+      can :read, User do |u|  
+        u.id == user.id
+      end
+
+      # they can read their own profile
       can :show, User do |u|  
         u.id == user.id
       end
