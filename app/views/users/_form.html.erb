@@ -1,19 +1,21 @@
-<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-    <legend><%= controller.action_name.capitalize %> User</legend>
-
-		<%= f.input :username %>
-		<%= f.input :instructor_id %>
-				
-		<%= f.input :password %>
-		<%= f.input :password_confirmation %>
-		
-		<%= f.input :active %>
-		<%= f.input :role, :collection => User::ROLES, :prompt => true %>
-
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'button radius' %>
-      <%= link_to 'Cancel',users_path, :class => 'button alert radius' %>
+<%= simple_nested_form_for @user, :html => { :multipart => true } do |user_form| %>
+   <div class="row">
+        <fieldset>
+          <legend><%= controller.action_name.capitalize %>User Settings</legend>
+          <%= render :partial => "user_fields", :locals => { :f => user_form } %>
+          <legend>Instructor Settings</legend>
+	        <div>
+	          <%= user_form.simple_fields_for :user do |instructor_form| %>
+	            <%= render :partial => "instructor_fields", :locals => { :f => instructor_form } %>
+	          <% end %> 
+	          <p>
+	            <br />
+	          </p>
+	        </div> 
+        </fieldset>
     </div>
-  </fieldset>
+<div class="form-actions">
+  <%= user_form.submit nil, :class => 'button radius' %>
+  <%= link_to 'Cancel', users_path, :class => 'button secondary' %>
+</div>
 <% end %>
