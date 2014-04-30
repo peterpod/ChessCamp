@@ -29,6 +29,12 @@ class Ability
         i.id == user.id
       end 
 
+      can :show, Instructor 
+
+      can :edit, Instructor do |i|  
+        i.id == user.instructor.id
+      end
+
       # they can update their own profile
       can :update, Instructor do |i|  
         i.id == user.instructor.id
