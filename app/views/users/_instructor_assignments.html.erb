@@ -1,0 +1,43 @@
+<h3>Instructor Assignments</h3>
+
+<table class="table">
+  <tr>
+    <th width="200">Instructor Name</th>
+    <th width="200">Phone</th>
+    <th width="400">Camps</th>
+    <% if can? :edit, Registration %>
+    <th></th>
+    <% end %>
+  </tr>
+
+<% @instructor_assignments.each do |instructor| %>
+  <tr>
+    <td><%= link_to instructor.name, instructor_path(instructor) %></td>
+    <td align="center"><%= number_to_phone instructor.phone %></td>
+    <td aligh="center">
+     <% if instructor.camps != nil || instructor.active == false %>
+        <% for camp in instructor.camps %>
+            <% if camp == instructor.camps.last %>
+              <%= link_to camp.name, camp_path(camp) %>
+              <%= camp.start_date.strftime("%m/%d/%y") %> 
+              </br>
+            <% else %>
+              <%= link_to camp.name, camp_path(camp) %>
+              <%= camp.start_date.strftime("%m/%d/%y") %> 
+              </br>
+            <% end %>
+        <% end %>
+      <% else %>
+        No Instructor Assignments
+      <% end %>
+    </td>
+    <% if can? :edit, Registration %>
+      <td><%= link_to 'Edit', edit_instructor_path(instructor), class: "button tiny radius" %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @full_registrations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>

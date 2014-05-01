@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     #@registrations = current_user.instructor.camps.students.paginate(:page => params[:page]).per_page(10)
     @deposit_registrations = Registration.by_student.deposit_only.paginate(:page => params[:page]).per_page(10)
     @full_registrations = Registration.by_student.paid.paginate(:page => params[:page]).per_page(10)
+    @instructor_assignments = Instructor.all.paginate(:page => params[:page]).per_page(10)
     @user = current_user
   end
 
