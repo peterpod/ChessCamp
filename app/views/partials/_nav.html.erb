@@ -79,6 +79,7 @@
               <li class="has-dropdown">
               <%= link_to "Welcome, #{current_user.username.capitalize}", user_path(current_user) %>
               <ul class="dropdown">
+                <li><%= link_to "View dashboard", users_url(current_user) %></li>
                 <li><%= link_to "View settings", user_path(current_user) %></li>
                 <li><%= link_to "Edit settings", edit_user_path(current_user) %></li>
                 <li><%= link_to "Logout", logout_path %></li>

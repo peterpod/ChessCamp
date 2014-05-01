@@ -1,11 +1,17 @@
 <h3>Instructor Details</h3><br />
-<strong>Name:&nbsp;&nbsp;</strong> 
-  <%= @user.instructor.proper_name %><br /><br />
+<strong>Name&nbsp;&nbsp;</strong> 
+  <%= current_user.instructor.proper_name %><br /><br />
 
-<strong>Phone:&nbsp;&nbsp;</strong> 
+<strong>Username&nbsp;&nbsp;</strong> 
+  <%= @user.username %><br /><br />
+
+<strong>Role&nbsp;&nbsp;</strong> 
+  <%= @user.role %><br /><br />
+
+<strong>Phone&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@user.instructor.phone) %><br /><br />
 
-<strong>Email:&nbsp;&nbsp;</strong> 
+<strong>Email&nbsp;&nbsp;</strong> 
   <%= mail_to @user.instructor.email, @user.instructor.email, encode: "javascript" %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>

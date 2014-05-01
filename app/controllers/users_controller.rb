@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def index
     @upcoming_camps = current_user.instructor.camps.upcoming.active.chronological.paginate(:page => params[:page]).per_page(10)
+    @registrations = current_user.instructor.camps.registrations.by_student.deposit_only.paginate(:page => params[:page]).per_page(10)
+    @user = current_user
   end
 
   def show

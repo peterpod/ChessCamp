@@ -1,2 +1,18 @@
-<h1>Registration#show</h1>
-<p>Find me in app/views/registration/show.html.erb</p>
+<div class="row">
+  <div class="small-7 columns">
+    <!-- MAIN CONTENT GOES HERE -->
+    <%= render :partial => "registration_details" %>
+    <br />
+    <%= link_to "Add a new family", new_family_path, class: "button tiny radius" %>
+  </div>
+
+  <div class="small-1 columns">
+    &nbsp;
+  </div>
+
+  <div class="small-4 columns">
+    <!-- SIDEBAR CONTENT GOES HERE -->
+    <%= render :partial => "registration_students" %>
+  </div>
+
+</div>

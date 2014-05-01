@@ -19,6 +19,7 @@ class Registration < ActiveRecord::Base
   # scopes
   scope :deposit_only, -> { where(payment_status: 'deposit') }
   scope :paid,         -> { where(payment_status: 'full') }
+  scope :by_student,   -> { joins(:student).order('students.last_name, students.first_name') }
 
 
   private

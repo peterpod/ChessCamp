@@ -1,3 +1,4 @@
+<h2> <%= "#{current_user.username.capitalize.pluralize} Dashboard"%></h2>
 <h3><%= status %> Camps</h3>
 
 <table class="table">
@@ -5,8 +6,6 @@
     <th width="260">Name</th>
     <th width="120">Start On</th>
     <th width="120">Time</th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @upcoming_camps.each do |camp| %>
@@ -14,7 +13,6 @@
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
     <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
   </tr>
 <% end %>
 </table>    
