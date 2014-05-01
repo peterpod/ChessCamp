@@ -23,6 +23,10 @@ ChessCamp::Application.routes.draw do
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
   
+  get 'show_deposit'  => 'users#show_deposit', as: :show_deposit
+  get 'show_full'  => 'users#show_full', as: :show_full
+  get 'show_instructors'  => 'users#show_instructors', as: :show_instructors
+
 
   # set the root url
   root :to => 'home#index'  

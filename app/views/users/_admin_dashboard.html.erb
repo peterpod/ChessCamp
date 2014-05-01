@@ -1,6 +1,37 @@
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+ <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
 <div class="row">
-    <%= render :partial => "deposit_registrations" %>
-    <br />
-    <%= render partial: 'full_registrations' %>
-    <%= render partial: 'instructor_assignments' %>
+	<div id="tabs">
+		<ul class="tabrow">
+		  <li class="selected"><a href="#">Deposit Registrations</a>
+		    <% @is_on_show_deposit = true %> 
+		    <% @is_on_show_full = false %>
+		    <% @is_on_show_instructors = false %>
+		  </li>
+		  <li><a href="#"> Full Registrations</a>
+		    <% @is_on_show_full = true %>
+		    <% @is_on_show_deposit = false %>
+		    <% @is_on_show_instructors = true %>
+		  </li>
+		  <li><a href="#"> Instructor Assignments</a>
+		    <% @is_on_show_instructors = true %>
+		    <% @is_on_show_full = false %>
+		    <% @is_on_show_deposit = false %>
+		  </li>
+		</ul>
+		<div id="extra_information">
+		  <% if @is_on_show_deposit %>
+		    <%= render :partial => 'deposit_registrations' %>
+		  <% elsif @is_on_show_full %>
+		    <%= render :partial => 'full_registrations' %>
+		  <% elsif @is_on_show_instructors %>
+		    <%= render :partial => 'instructor_assignments' %>
+		  <% end %>
+		</div>
+	</div>
 </div>

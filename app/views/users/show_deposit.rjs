@@ -1,0 +1,1 @@
+page.replace_html('extra_information', :partial => 'deposit_registrations')
