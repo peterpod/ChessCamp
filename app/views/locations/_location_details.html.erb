@@ -18,12 +18,11 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %><br /><br />
 
-<strong>Map</strong><br/>
-<%= image_tag @location.create_map_link %>
-</br>
-<br>
 
 
-
-<%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% if can? :edit, Location %>
+  <%= link_to "Edit this location", edit_location_path(@location), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
+<% if can? :Destroy, Location %>
+  <%= link_to 'Destroy location', location_path(@location), data: { confirm: 'Are you sure you want to permanently remove this location from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% end %>

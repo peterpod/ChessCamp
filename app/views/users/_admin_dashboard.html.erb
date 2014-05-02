@@ -1,37 +1,25 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
  <script>
-  $(function() {
+ $(function() {
     $( "#tabs" ).tabs();
   });
   </script>
 <div class="row">
 	<div id="tabs">
-		<ul class="tabrow">
-		  <li class="selected"><a href="#">Deposit Registrations</a>
-		    <% @is_on_show_deposit = true %> 
-		    <% @is_on_show_full = false %>
-		    <% @is_on_show_instructors = false %>
-		  </li>
-		  <li><a href="#"> Full Registrations</a>
-		    <% @is_on_show_full = true %>
-		    <% @is_on_show_deposit = false %>
-		    <% @is_on_show_instructors = true %>
-		  </li>
-		  <li><a href="#"> Instructor Assignments</a>
-		    <% @is_on_show_instructors = true %>
-		    <% @is_on_show_full = false %>
-		    <% @is_on_show_deposit = false %>
-		  </li>
-		</ul>
-		<div id="extra_information">
-		  <% if @is_on_show_deposit %>
-		    <%= render :partial => 'deposit_registrations' %>
-		  <% elsif @is_on_show_full %>
-		    <%= render :partial => 'full_registrations' %>
-		  <% elsif @is_on_show_instructors %>
-		    <%= render :partial => 'instructor_assignments' %>
-		  <% end %>
-		</div>
+	  <ul>
+	    <li><a href="#tabs-1">Deposit Registrations</a></li>
+	    <li><a href="#tabs-2">Full Registrations</a></li>
+	    <li><a href="#tabs-3">Instructor Assignments</a></li>
+	  </ul>
+	  <div id="tabs-1">
+	    <%= render :partial => 'deposit_registrations' %>
+	  </div>
+	  <div id="tabs-2">
+	    <%= render :partial => 'full_registrations' %>
+	  </div>
+	  <div id="tabs-3">
+	    <%= render :partial => 'instructor_assignments' %>
+	  </div>
 	</div>
 </div>
