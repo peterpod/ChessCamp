@@ -18,10 +18,24 @@
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
 
+<% if current_user.nil? %>
+  <strong>Location Address</strong></br>
+  <%= @camp.location.street_1 %><br />
+  <% if !@camp.location.street_2.nil? %>
+    <%= @camp.location.street_2 %><br/>
+  <% end %>
+  <%= @camp.location.city %>, <%= @camp.location.state %> <%= @camp.location.zip %>
+  <br/>
+  <br>
+<% end %>
+
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @camp.active ? "Yes" : "No" %><br /><br />
 
 
-
-<%= link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% if can? :edit, Camp %>
+  <%= link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
+<% if can? :destroy, Camp %>
+  <%= link_to 'Destroy camp', camp_path(@camp), data: { confirm: 'Are you sure you want to permanently remove this camp from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% end %>

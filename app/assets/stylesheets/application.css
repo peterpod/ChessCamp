@@ -350,7 +350,7 @@ td, th {
   padding: 0;
   list-style: none; 
   color: #666666;
-  padding: 3px 6px;
+  border: 1px;
 }
 #tabs ul{
   margin-left:0px;

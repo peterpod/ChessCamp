@@ -1,3 +1,5 @@
+</br>
+<br>
 <% unless @inactive_camps.empty? %>
   <div class="panel clearfix">
     <h5>Inactive Camps</h5>
@@ -6,5 +8,9 @@
         <li><%= link_to camp.name, camp_path(camp) %></li>
       <% end %>
     </ul>
+  </div>
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Inactive Camps</h5>
   </div>
 <% end %>
