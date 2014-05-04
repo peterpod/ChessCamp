@@ -3,7 +3,9 @@
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "active_families" %>
     <br />
-    <%= link_to "Add a new family", new_family_path, class: "button tiny radius" %>
+    <% if can? :create, Family %>
+      <%= link_to "Add a new family", new_family_path, class: "button tiny radius" %>
+    <% end %>
   </div>
 
   <div class="small-1 columns">

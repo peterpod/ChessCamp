@@ -3,7 +3,9 @@
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "active_instructors" %>
     <br />
-    <%= link_to "Add a new instructor", new_instructor_path, class: "button tiny radius" %>
+    <% if can? :create, Instructor %>
+      <%= link_to "Add a new instructor", new_instructor_path, class: "button tiny radius" %>
+    <% end %>
   </div>
 
   <div class="small-1 columns">

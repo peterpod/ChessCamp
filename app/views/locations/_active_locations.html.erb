@@ -5,7 +5,9 @@
     <th width="200">Name</th>
     <th width="620">Address</th>
     <th width="100">Capacity</th>
-    <th></th>
+    <% if can? :edit, Location %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @active_locations.each do |location| %>
@@ -13,7 +15,9 @@
     <td><%= link_to location.name, location_path(location) %></td>
     <td align="center"><%= location.street_1 %>, <%= location.city %>, <%= location.state %></td>
     <td align="center"><%= location.max_capacity %></td>
-    <td><%= link_to 'Edit', edit_location_path(location), class: "button tiny radius" %></td>
+    <% if can? :edit, Location %>
+      <td><%= link_to 'Edit', edit_location_path(location), class: "button tiny radius" %></td>
+    <% end %> 
   </tr>
 <% end %>
 </table>

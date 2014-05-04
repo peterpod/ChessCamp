@@ -6,7 +6,9 @@
     <th width="200">Parent</th>
     <th width="400">Phone</th>
     <th>Students</th>
-    <th></th>
+    <% if can? :edit, Family %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @active_families.each do |family| %>
@@ -15,7 +17,9 @@
     <td><%= family.parent_first_name %></td>
     <td align="center"><%= number_to_phone family.phone %></td>
     <td align="center"><%= family.students.size %></td>
-    <td><%= link_to 'Edit', edit_family_path(family), class: "button tiny radius" %></td>
+    <% if can? :edit, Family %>
+      <td><%= link_to 'Edit', edit_family_path(family), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

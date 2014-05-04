@@ -5,8 +5,9 @@
     <th width="200">Name</th>
     <th width="200">Ratings Range</th>
     <th width="100">Times Used</th>
-    <th></th>
-    <th></th>
+    <% if can? :edit, Curriculum %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @active_curriculums.each do |curriculum| %>
@@ -14,7 +15,9 @@
     <td><%= link_to curriculum.name, curriculum_path(curriculum) %></td>
     <td align="center"><%= curriculum.min_rating.zero? ? "Unrated" : curriculum.min_rating %> - <%= curriculum.max_rating %></td>
     <td align="center"><%= curriculum.camps.size %></td>
-    <td><%= link_to 'Edit', edit_curriculum_path(curriculum), class: "button tiny radius" %></td>
+    <% if can? :edit, Curriculum %>
+      <td><%= link_to 'Edit', edit_curriculum_path(curriculum), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

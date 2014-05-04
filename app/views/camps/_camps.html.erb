@@ -5,7 +5,9 @@
     <th width="260">Name</th>
     <th width="120">Start On</th>
     <th width="120">Time</th>
-    <th></th>
+    <% if can? :edit, Camp %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% camps.each do |camp| %>
@@ -13,7 +15,9 @@
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
     <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <% if can? :edit, Camp %>
+      <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -5,7 +5,9 @@
     <th width="240">Name</th>
     <th width="100">Rating</th>
     <th width="100">Age</th>
-    <th></th>
+    <% if can? :edit, Student %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @all_students.each do |student| %>
@@ -19,7 +21,9 @@
       <% end %>
     </td>
     <td><%= student.age %></td>
-    <td><%= link_to 'Edit', edit_student_path(student), class: "button tiny radius" %></td>
+    <% if can? :edit, Student %>  
+      <td><%= link_to 'Edit', edit_student_path(student), class: "button tiny radius" %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
