@@ -29,6 +29,9 @@
 </p>
 
 
-
-<%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
-<%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% if can? :edit, Instructor %>
+  <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
+<% if can? :destroy, Instructor %>
+  <%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+<% end %>

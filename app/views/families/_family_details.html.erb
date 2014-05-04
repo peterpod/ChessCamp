@@ -16,5 +16,6 @@
   <%= @family.active ? "Yes" : "No" %><br /><br />
 
 
-
-<%= link_to "Edit this Family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
+<% if can? :edit, Family %>
+	<%= link_to "Edit this Family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>

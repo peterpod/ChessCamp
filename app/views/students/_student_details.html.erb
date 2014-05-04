@@ -24,5 +24,6 @@
   <%= @student.active ? "Yes" : "No" %><br /><br />
 
 
-
-<%= link_to "Edit this student", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
+<% if can? :edit, Student %>
+  <%= link_to "Edit this student", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
+<% end %>
