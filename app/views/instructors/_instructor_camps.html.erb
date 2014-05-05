@@ -8,6 +8,10 @@
       <% end %>
     </ul>
   </div>
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Upcoming Camps</h5>
+  </div>
 <% end %>
 
 <% unless @past_camps.empty? %>
@@ -18,5 +22,9 @@
         <li><%= link_to camp.name, camp_path(camp) %> (<%= camp.start_date.strftime('%m/%d/%y') %>)</li>
       <% end %>
     </ul>
+  </div>
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Past Camps</h5>
   </div>
 <% end %>

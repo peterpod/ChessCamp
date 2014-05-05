@@ -51,6 +51,12 @@ class Ability
         camp_students.include? this_student.id 
       end
 
+      # patrick can see students registered for his camp in a sidebar
+      can :read, Registration do |this_student|  
+        camp_students = user.instructor.camps.map{|c| c.students.map(&:id)}.flatten
+        camp_students.include? this_student.id 
+      end
+
       # they can read their own camps' data
       can :read, Camp do |this_camp|  
         my_camps = user.instructor.camps.map(&:id)
