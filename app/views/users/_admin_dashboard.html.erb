@@ -11,6 +11,7 @@
 	    <li><a href="#tabs-1">Deposit Registrations</a></li>
 	    <li><a href="#tabs-2">Full Registrations</a></li>
 	    <li><a href="#tabs-3">Instructor Assignments</a></li>
+	    <li><a href="#tabs-4">Camps</a></li>
 	  </ul>
 	  <div id="tabs-1">
 	    <%= render :partial => 'deposit_registrations' %>
@@ -20,6 +21,12 @@
 	  </div>
 	  <div id="tabs-3">
 	    <%= render :partial => 'instructor_assignments' %>
+	  </div>
+	  <div id="tabs-4">
+	    <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
+	    <p>&nbsp;</p>
+	    <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
+	    <br />
 	  </div>
 	</div>
 </div>

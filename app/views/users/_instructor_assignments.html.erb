@@ -1,5 +1,10 @@
 </br>
-<h3>Instructor Assignments</h3>
+<h3>Instructor Assignments&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <% if can? :create, Instructor %>
+      <%= link_to "Add a new Instructor", new_instructor_path, class: "button tiny radius" %>
+    <% end %>
+</h3>
 
 <table class="table">
   <tr>

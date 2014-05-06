@@ -80,6 +80,12 @@ class InstructorTest < ActiveSupport::TestCase
       assert_equal "Alex Heimann", @alex.proper_name
     end
 
+    # test the scope 'search'
+    should "shows that search for instructor by either (part of) last or first name works" do
+      assert_equal 3, Instructor.search("Hei").size
+      assert_equal 1, Instructor.search("Mark").size
+    end
+
     should "have a class method to give array of instructors for a given camp" do
       delete_instructors
       create_curriculums

@@ -16,7 +16,10 @@ ChessCamp::Application.routes.draw do
   get 'signup' => 'users#new', as: :signup
   get 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login
-
+  get 'user/search', to: 'users#search', as: :search
+  get 'payment_reports', to: 'users#payment_reports', as: :payment_reports
+  get 'registered_students', to: 'users#registered_students', as: :registered_students
+  
   # semi-static routes
   get 'home', to: 'home#index', as: :home
   get 'home/about', to: 'home#about', as: :about

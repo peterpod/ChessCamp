@@ -1,0 +1,26 @@
+<h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
+<p class="supertiny">&nbsp;</p>
+
+<% unless @instructors.nil? %>
+	<p><em><strong>Instructors matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for instructor in @instructors do %>
+			<li><%= link_to instructor.name, instructor_path(instructor) %></li>
+		<% end %>
+	</ul>
+	<p class="smtext">&nbsp;</p>
+<% end %>
+
+<% unless @students.nil? %>
+	<p><em><strong>Students matching term '<%= @query %>'</strong></em></p>
+	<ul>
+		<% for student in @students do %>
+			<li><%= link_to student.name, student_path(student) %></li>
+		<% end %>
+	</ul>
+	<p class="supertiny">&nbsp;</p>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to 'Back to dashboard', users_url, :class => 'button secondary radius' %>
+</div>

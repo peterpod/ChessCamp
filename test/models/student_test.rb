@@ -85,6 +85,12 @@ class StudentTest < ActiveSupport::TestCase
       assert_equal 10, @ted.age
     end
 
+    # test the scope 'search'
+    should "shows that search for student by either (part of) last or first name works" do
+      assert_equal 3, Student.search("Regan").size
+      assert_equal 1, Student.search("ke").size
+    end
+
     should "sort students in alphabetical order" do
       assert_equal ["Gruberman, Ted", "Regan, Kelsey", "Regan, Peter", "Regan, Sean", "Skirpan, Max", "Skirpan, Zach"], Student.alphabetical.all.map(&:name)
     end

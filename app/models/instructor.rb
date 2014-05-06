@@ -20,6 +20,7 @@ class Instructor < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
   scope :needs_bio, -> { where('bio IS NULL') }
+  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
   
   # class methods
   def self.for_camp(camp)

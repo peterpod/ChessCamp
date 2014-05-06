@@ -19,6 +19,7 @@ class Student < ActiveRecord::Base
   scope :inactive, -> { where(active: false) }
   scope :below_rating, ->(ceiling) { where('rating < ?', ceiling) }
   scope :at_or_above_rating, ->(floor) { where('rating >= ?', floor) }
+  scope :search, ->(term) { where('first_name LIKE ? OR last_name LIKE ?', "#{term}%", "#{term}%") }
 
   # callbacks
   before_destroy :is_never_destroyable

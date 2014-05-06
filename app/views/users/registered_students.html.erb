@@ -1,0 +1,23 @@
+<h3>Students</h3>
+
+<table class="table">
+  <tr>
+    <th width="260">Name</th>
+    <th width="120">Camp</th>
+    <th width="120">Rating</th>
+    <th width="120">Payment Status</th>
+  </tr>
+
+<% @registrations.each do |registration| %>
+  <tr>
+    <td><%= link_to registration.student.name, registration_path(registration) %></td>
+    <td align="center"><%= registration.camp.curriculum.name %></td>
+    <td align="center"><%= registration.student.rating %></td>
+    <td align="center"><%= registration.payment_status %></td>
+  </tr>
+<% end %>
+</table>    
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @registrations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
