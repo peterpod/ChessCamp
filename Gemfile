@@ -15,6 +15,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+gem 'chronic', '0.10.2'
+
 gem 'jquery-ui-rails', '4.1.1'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -25,6 +27,8 @@ gem 'jquery-rails'
 
 # Turbolinks isn't playing nicely with foundation so for now remove it from standard rails
 # gem 'turbolinks'
+
+gem 'time_date_helpers', '0.0.2'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

@@ -44,6 +44,10 @@ class StudentsController < ApplicationController
   end
 
   private
+    def convert_start_and_end_dates
+      params[:student][:date_of_birth] = convert_to_date(params[:student][:date_of_birth]) unless params[:student][:date_of_birth].blank?
+    end
+
     def set_student
       @student = Student.find(params[:id])
     end
