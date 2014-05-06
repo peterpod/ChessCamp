@@ -62,6 +62,5 @@ class UserTest < ActiveSupport::TestCase
       assert @mark_user.role?(:admin)
       deny @mark_user.role?(:instructor)
     end
-
   end
 end

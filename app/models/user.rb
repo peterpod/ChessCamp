@@ -24,14 +24,8 @@ class User < ActiveRecord::Base
   end
 
   # login by email address
-  def self.authenticate(username, password)
-    find_by_username(username).try(:authenticate, password)
-  end
-
-
-  private
-  def instructor_is_active_in_the_system
-    is_active_in_system(:instructor)
-  end
+  # def self.authenticate(username, password)
+  #   find_by_username(username).try(:authenticate, password)
+  # end
 
 end

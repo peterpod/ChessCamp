@@ -10,8 +10,9 @@
     <th width="200">Name</th>
     <th width="120">Start On</th>
     <th width="120">Time</th>
-    <% if current_user.role == "instructor" %>
-      <th width="120">Registered Students</th>
+    <th width="60">Student</th>
+    <% if current_user.role == "admin" %>
+      <th width="60">Payments Received</th>
     <% end %>
   </tr>
 
@@ -20,13 +21,14 @@
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
     <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-    <!-- <td align="center"><%= camp.registrations.paid.size * camp.cost%></td> -->
-    <% if current_user.role == "instructor" %>
-      <td><%= link_to 'Registered Students', registered_students_path(camp.students), class: "button tiny radius" %></td>
+    <td align="center"><%= camp.registrations.size %></td>
+    <% if current_user.role == "admin" %>
+      <td align="center"><%= camp.registrations.paid.size * camp.cost%></th>
     <% end %>
   </tr>
 <% end %>
 </table>    
+
 <!-- Add the pagination using will_paginate gem -->
 <span class="paginate">
 <%= will_paginate @upcoming_camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

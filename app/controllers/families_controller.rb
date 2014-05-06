@@ -11,6 +11,7 @@ class FamiliesController < ApplicationController
 
   def show
     @family_students = @family.students.alphabetical
+    @family_registrations =@family.registrations
   end
 
   def new

@@ -10,6 +10,8 @@
 
   <div class="small-4 columns">
     <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render partial: 'family_students' %>
+    <% if current_user.role != "admin" %>
+      <%= render partial: 'family_students' %>
+    <% end %>
   </div>
 </div>
