@@ -3,10 +3,19 @@
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
     <p>&nbsp;</p>
-    <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
+    <% if @past_camps.empty? %>
+      <div class="panel clearfix">
+        <h5>No Past Camps</h5>
+      </div>
+    <% else %>
+      <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
+    <% end %>
     <br />
     <% if can? :create, Camp %>
       <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
+    <% end %>
+    <% if can? :create, Registration %>
+      <%= link_to "Add a new registration", new_registration_path, class: "button tiny radius" %>
     <% end %>
   </div>
 

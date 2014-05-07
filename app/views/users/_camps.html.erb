@@ -1,4 +1,4 @@
-<h2> <%= "#{current_user.username.capitalize.pluralize} Dashboard"%></h2>
+<h2> <%= "#{current_user.instructor.first_name.capitalize.pluralize} Dashboard"%></h2>
 <h3><%= status %> Camps  
 <% if can? :create, Camp %>
       <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>

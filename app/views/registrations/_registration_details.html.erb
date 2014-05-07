@@ -1,13 +1,18 @@
 <h3>Registration Details</h3><br />
 
-<strong>Camp&nbsp;&nbsp;</strong> 
-  <%= @family.family_name %><br /><br />
+<strong>Student Name&nbsp;&nbsp;</strong> 
+  <%= @registration.student.name %><br /><br />
+
+<strong>Family Name&nbsp;&nbsp;</strong> 
+  <%= @registration.student.family.family_name %><br /><br />
 
 <strong>Payment Status&nbsp;&nbsp;</strong> 
-  <%= @family.parent_first_name %><br /><br />
+  <%= @registration.payment_status %><br /><br />
 
 <strong>Points Earned&nbsp;&nbsp;</strong> 
-  <%= number_to_phone(@family.phone) %><br /><br />
+  <%= @registration.points_earned %><br /><br />
 
 
-<%= link_to "Edit this Registration", edit_registration_path(@registration), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to "Edit this Registration", edit_registration_path(@registration), class: "button tiny radius" %>
+<%= link_to "Add a new family", new_family_path, class: "button tiny radius" %>
+<%= link_to "Back to families", family_path, class: "button tiny radius" %>
