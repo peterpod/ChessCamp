@@ -7,13 +7,14 @@
 
 <strong>Email:&nbsp;&nbsp;</strong> 
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
-
-<% if @instructor.user != nil && current_user.role == "admin" %>
-    <strong>Role</strong>
-    <%= "#{@instructor.user.role}" %>
-    <strong>Username</strong>
-    <%= "#{@instructor.user.username}" %>
-<%end%>
+<% if current_user != nil %>
+  <% if @instructor.user != nil && current_user.role == "admin" %>
+      <strong>Role</strong>
+      <%= "#{@instructor.user.role}" %>
+      <strong>Username</strong>
+      <%= "#{@instructor.user.username}" %>
+  <%end%>
+<% end %>
 
 
 <strong>Active?&nbsp;&nbsp;</strong>
@@ -23,9 +24,11 @@
   <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
 
   <p>
-<% unless @instructor.picture_url.nil? %>
+<% if @instructor.picture_url.nil? %>
+    <strong>No Photo Available</strong>
+<% else %>
     <p><%= image_tag @instructor.picture_url %></p>
-  <% end %>
+<% end %>
 </p>
 
 

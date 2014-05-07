@@ -6,6 +6,9 @@
     <% if can? :create, Student %>
       <%= link_to "Add a new student", new_student_path, class: "button tiny radius" %>
     <% end %>
+    <% if can? :create, Registration %>
+      <%= link_to "Add a new registration", new_registration_path, class: "button tiny radius" %>
+    <% end %>
   </div>
 
   <div class="small-1 columns">

@@ -1,15 +1,14 @@
 <%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
    
    <h3><%= controller.action_name.capitalize %> Registration</h3>
-    
-    <%= f.input :camp_id %>
-    <%= f.input :student_id %>
-    <%= f.input :payment_status %>
+    <%= f.input :camp_id, collection: Camp.active.alphabetical, :label_method => lambda { |camp| "#{camp.name} | #{camp.start_date} | #{camp.time_slot}"} , include_blank: true, prompt: "Select camp..." %>
+    <%= f.input :student_id, collection: Student.active.alphabetical, include_blank: true, prompt: "Select Student..." %>
+    <%= f.input :payment_status, collection: [['Deposit','deposit'],['Full','full']], prompt: "Select payment_status..." %>
     <%= f.input :points_earned %>
     
     <div class="form-actions">
       <%= f.submit nil, class: 'button radius' %>
-      <%= link_to 'Back to list of instructors', instructors_path, :class => 'button secondary radius' %>
+      <%= link_to 'Back to list of registrations', registrations_path, :class => 'button secondary radius' %>
     </div>
 
 <% end %>
