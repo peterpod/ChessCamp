@@ -5,3 +5,9 @@ look and feel. General users can still view upcoming camps within one click.
 
 #I used a datepicker for the Camp form which causes those cucumber tests to fail. However,
 The form is fully functional with update/create abilities.
+
+#Unit tests seem to change every time I run them. If there is ever an error it involves the following.
+ undefined method `delete' for nil:NilClass
+        Exception `NoMethodError' at:
+        test/sets/location_contexts.rb:13:in `delete_active_locations'
+At times all my tests pass, however, I believe this is an error on google's part as locations always causes the issue 
