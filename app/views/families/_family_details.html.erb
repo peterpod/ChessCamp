@@ -1,53 +1,21 @@
-<% if current_user.role == "admin" %>
-	<h3><%= @family.family_name.capitalize%> Family</h3>
-	<table class="table">
-  <tr>
-    <th width="200">Student Name</th>
-    <th width="100">Rating</th>
-    <th width="100">Payment Status</th>
-    <th width="100">Balance Due</th>
-  </tr>
-<% total=0 %>
-<% @family_registrations.each do |registration| %>
-  <tr>
-    <td><%= link_to registration.student.name, student_path(registration.student) %></td>
-    <td align="center"><%= registration.student.rating %></td>
-    <td align="center"><%= registration.payment_status %></td>
-  	<td align="center">
-  		<% if registration.payment_status=="deposit" %>
-  			<%= "$#{registration.camp.cost}" %>
-  			<% total = total + registration.camp.cost %>
-  		<% else %>
-  			<%= "$0" %>
-  		<% end %>
-  </tr>
-<% end %>
-</table>
-<h5>Total Payment Due: <%= total %></h5>
+<h3>Family Details</h3><br />
+
+<strong>Family Name:&nbsp;&nbsp;</strong> 
+  <%= @family.family_name %><br /><br />
+
+<strong>Parent&nbsp;&nbsp;</strong> 
+  <%= @family.parent_first_name %><br /><br />
+
+<strong>Phone:&nbsp;&nbsp;</strong> 
+  <%= number_to_phone(@family.phone) %><br /><br />
+
+<strong>Email:&nbsp;&nbsp;</strong> 
+  <%= mail_to @family.email, @family.email, encode: "javascript" %><br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @family.active ? "Yes" : "No" %><br /><br />
 
 
-<% else %>
-
-	<h3>Family Details</h3><br />
-
-	<strong>Family Name:&nbsp;&nbsp;</strong> 
-	  <%= @family.family_name %><br /><br />
-
-	<strong>Parent&nbsp;&nbsp;</strong> 
-	  <%= @family.parent_first_name %><br /><br />
-
-	<strong>Phone:&nbsp;&nbsp;</strong> 
-	  <%= number_to_phone(@family.phone) %><br /><br />
-
-	<strong>Email:&nbsp;&nbsp;</strong> 
-	  <%= mail_to @family.email, @family.email, encode: "javascript" %><br /><br />
-
-	<strong>Active?&nbsp;&nbsp;</strong>
-	  <%= @family.active ? "Yes" : "No" %><br /><br />
-
-
-	<% if can? :edit, Family %>
-		<%= link_to "Edit this Family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
-	<% end %>
-
+<% if can? :edit, Family %>
+	<%= link_to "Edit this Family", edit_family_path(@family), class: "button tiny radius" %>&nbsp;&nbsp;
 <% end %>

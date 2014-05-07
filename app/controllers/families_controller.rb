@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: [:show, :edit, :update, :destroy, :family_payment]
   before_action :check_login
   authorize_resource
 
@@ -19,6 +19,10 @@ class FamiliesController < ApplicationController
   end
 
   def edit
+  end
+
+  def family_payment
+    @family_registrations =@family.registrations
   end
 
   def create

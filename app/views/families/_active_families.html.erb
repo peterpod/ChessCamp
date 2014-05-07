@@ -21,7 +21,7 @@
     <td align="center"><%= number_to_phone family.phone %></td>
     <td align="center"><%= family.students.size %></td>
     <% if can? :edit, Family %>
-      <td><%= link_to 'Payment Report', family_path(family), class: "button tiny radius" %></td>
+      <td><%= link_to 'Payment Report', family_payment_family_path(family) , :method => :post, class: "button tiny radius" %></td>
     <% end %>
     <% if can? :edit, Family %>
       <td><%= link_to 'Edit', edit_family_path(family), class: "button tiny radius" %></td>

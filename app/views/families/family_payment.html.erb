@@ -1,0 +1,29 @@
+<h3><%= @family.family_name.capitalize%> Family</h3>
+	<table class="table">
+  <tr>
+    <th width="200">Student Name</th>
+    <th width="100">Rating</th>
+    <th width="100">Payment Status</th>
+    <th width="100">Balance Due</th>
+  </tr>
+<% total=0 %>
+<% @family_registrations.each do |registration| %>
+  <tr>
+    <td><%= link_to registration.student.name, student_path(registration.student) %></td>
+    <td align="center"><%= registration.student.rating %></td>
+    <td align="center"><%= registration.payment_status %></td>
+  	<td align="center">
+  		<% if registration.payment_status=="deposit" %>
+  			<%= "$#{registration.camp.cost}" %>
+  			<% total = total + registration.camp.cost %>
+  		<% else %>
+  			<%= "$0" %>
+  		<% end %>
+  </tr>
+<% end %>
+</table>
+<h5>Total Payment Due: <%= total %></h5>
+</br>
+</br>
+
+<%= link_to 'Back to families', families_path, :class => 'button secondary' %>

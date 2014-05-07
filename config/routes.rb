@@ -20,6 +20,8 @@ ChessCamp::Application.routes.draw do
   get 'payment_reports', to: 'users#payment_reports', as: :payment_reports
   get 'registered_students', to: 'users#registered_students', as: :registered_students
   
+  #get 'family/family_payment', to: 'families#family_payment', as: :family_payment
+
   # semi-static routes
   get 'home', to: 'home#index', as: :home
   get 'home/about', to: 'home#about', as: :about
@@ -33,5 +35,11 @@ ChessCamp::Application.routes.draw do
 
   # set the root url
   root :to => 'home#index'  
+
+  resources :families do
+    member do
+      post :family_payment
+    end
+  end
 
 end
