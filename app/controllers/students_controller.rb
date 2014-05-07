@@ -53,6 +53,7 @@ class StudentsController < ApplicationController
     end
 
     def student_params
+      convert_start_and_end_dates
       params.require(:student).permit(:first_name, :last_name, :family_id, :date_of_birth, :rating, :active)
     end
 end
