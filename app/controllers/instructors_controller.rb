@@ -1,7 +1,6 @@
 class InstructorsController < ApplicationController
   include ActionView::Helpers::NumberHelper
-  before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-  #before_action :check_login 
+  before_action :set_instructor, only: [:show, :edit, :update]
   authorize_resource
 
   def index
@@ -22,6 +21,7 @@ class InstructorsController < ApplicationController
   def edit
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
+    #a user is built for the instructor if user is nil within the edit page.
     @instructor.build_user if @instructor.user.nil?
   end
 
@@ -40,11 +40,6 @@ class InstructorsController < ApplicationController
     else
       render action: 'edit'
     end
-  end
-
-  def destroy
-    @instructor.destroy
-    redirect_to instructors_url, notice: "#{@instructor.proper_name} was removed from the system."
   end
 
   private

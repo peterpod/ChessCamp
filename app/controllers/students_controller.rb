@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update]
   before_action :check_login
   authorize_resource
 
@@ -38,13 +38,9 @@ class StudentsController < ApplicationController
     end
   end
 
-  def destroy
-    @student.destroy
-    redirect_to students_url, notice: "#{@student.proper_name} was removed from the system."
-  end
-
   private
-    def convert_start_and_end_dates
+    #custom code to convert dob due to datepicker
+    def convert_date_of_birth
       params[:student][:date_of_birth] = convert_to_date(params[:student][:date_of_birth]) unless params[:student][:date_of_birth].blank?
     end
 
@@ -53,7 +49,7 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      convert_start_and_end_dates
+      convert_date_of_birth
       params.require(:student).permit(:first_name, :last_name, :family_id, :date_of_birth, :rating, :active)
     end
 end

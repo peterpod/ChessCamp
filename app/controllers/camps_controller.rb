@@ -1,6 +1,5 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: [:show, :edit, :update, :destroy]
-  #before_action :check_login
+  before_action :set_camp, only: [:show, :edit, :update]
   authorize_resource 
 
   def index
@@ -10,7 +9,9 @@ class CampsController < ApplicationController
   end
 
   def show
+    #instructors assigned to camps
     @instructors = @camp.instructors.alphabetical.to_a
+    #student registrations for a particular camp
     @registrations = @camp.students.alphabetical.to_a
   end
 
@@ -44,6 +45,7 @@ class CampsController < ApplicationController
   end
 
   private
+    #start dates need to be converted to dates to fix an issue with datepicker
     def convert_start_and_end_dates
       params[:camp][:start_date] = convert_to_date(params[:camp][:start_date]) unless params[:camp][:start_date].blank?
       params[:camp][:end_date] = convert_to_date(params[:camp][:end_date]) unless params[:camp][:end_date].blank?

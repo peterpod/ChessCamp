@@ -24,18 +24,6 @@ class UsersController < ApplicationController
     @total_hits = @instructors.size + @students.size
   end
 
-  def show_deposit
-    @is_on_show_deposit = true
-  end
-
-  def show_full
-    @is_on_show_full = true
-  end
-
-  def show_instructors
-    @is_on_show_instructors = true
-  end
-
   def new
     @user = User.new
   end

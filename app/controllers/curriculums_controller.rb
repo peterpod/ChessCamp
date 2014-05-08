@@ -1,5 +1,5 @@
 class CurriculumsController < ApplicationController
-  before_action :set_curriculum, only: [:show, :edit, :update, :destroy]
+  before_action :set_curriculum, only: [:show, :edit, :update]
   before_action :check_login
   authorize_resource
 
@@ -36,11 +36,6 @@ class CurriculumsController < ApplicationController
     else
       render action: 'edit'
     end
-  end
-
-  def destroy
-    @curriculum.destroy
-    redirect_to curriculums_url, notice: "#{@curriculum.name} was removed from the system."
   end
 
   private

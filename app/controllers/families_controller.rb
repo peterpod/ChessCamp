@@ -1,5 +1,5 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy, :family_payment]
+  before_action :set_family, only: [:show, :edit, :update, :family_payment]
   before_action :check_login
   authorize_resource
 
@@ -10,7 +10,9 @@ class FamiliesController < ApplicationController
   end
 
   def show
+    #displays a families children
     @family_students = @family.students.alphabetical
+    #displays a families registrations
     @family_registrations =@family.registrations
   end
 
@@ -21,6 +23,7 @@ class FamiliesController < ApplicationController
   def edit
   end
 
+  #method to display family payments for an admin
   def family_payment
     @family_registrations =@family.registrations
   end
@@ -40,11 +43,6 @@ class FamiliesController < ApplicationController
     else
       render action: 'edit'
     end
-  end
-
-  def destroy
-    @family.destroy
-    redirect_to familys_url, notice: "#{@family.family_name} was removed from the system."
   end
 
   private

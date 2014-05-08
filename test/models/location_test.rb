@@ -80,6 +80,9 @@ class LocationTest < ActiveSupport::TestCase
       deny klingon_city.valid?, "#{klingon_city.to_yaml}"
     end
 
+    should "show create map link works" do
+      assert_equal "http://maps.google.com/maps/api/staticmap?center= 40.4439459,-79.9422046&zoom=15&size=800x800&maptype=roadmap&markers=color:red%7Ccolor:red%7Clabel:1%7C40.4439459,-79.9422046&sensor=false", @cmu.create_map_link
+    end
   end
 
 end

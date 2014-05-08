@@ -2,6 +2,7 @@ class RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
   
   def index
+    #list of registrations ordered with the by student scope
     @registrations = Registration.by_student.paginate(:page => params[:page]).per_page(10)
     @deposit_registrations = Registration.by_student.deposit_only.paginate(:page => params[:page]).per_page(10)
     @full_registrations = Registration.by_student.paid.paginate(:page => params[:page]).per_page(10)
