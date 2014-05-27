@@ -17,6 +17,7 @@
   </tr>
 
 <% @upcoming_camps.each do |camp| %>
+  <% if can? :read, Camp %>
   <tr>
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
@@ -26,6 +27,7 @@
       <td align="center"><%= camp.registrations.paid.size * camp.cost%></th>
     <% end %>
   </tr>
+  <% end %>
 <% end %>
 </table>    
 

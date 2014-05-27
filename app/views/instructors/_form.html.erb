@@ -1,6 +1,6 @@
 <%= simple_nested_form_for @instructor, :html => { :multipart => true } do |instructor_form| %>
    <div class="row">
-      <div class="small-7 columns">
+      <div class="small-5 columns">
         <fieldset>
           <legend><%= controller.action_name.capitalize %> Instructor</legend>
           <%= render :partial => "instructor_fields", :locals => { :f => instructor_form } %>

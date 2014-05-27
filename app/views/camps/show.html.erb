@@ -16,9 +16,9 @@
     <% if can? :read, Registration %>
       <%= render partial: 'registrations' %>
     <% end %>
-    <% if current_user.nil? %>
+    <% if current_user.nil? || current_user.role == "admin"%>
       <div class="panel clearfix">
-        <strong>Map</strong><br/></br>
+        <strong><%= link_to @camp.location.name, location_path(@camp.location) %></strong><br/></br>
         <%= image_tag @camp.location.create_map_link %>
         </br>
         <br>
