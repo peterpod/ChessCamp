@@ -3,9 +3,9 @@ module Contexts
     def create_camps
       # assumes create_curriculums prior
       @camp1 = FactoryGirl.create(:camp, curriculum: @tactics, location: @cmu)    
-      @camp2 = FactoryGirl.create(:camp, curriculum: @tactics, start_date: Date.new(2014,7,21), end_date: Date.new(2014,7,25), location: @cmu)
+      @camp2 = FactoryGirl.create(:camp, curriculum: @tactics, start_date: Date.new(2016,7,21), end_date: Date.new(2016,7,25), location: @cmu)
       @camp3 = FactoryGirl.create(:camp, curriculum: @tactics, time_slot: "pm", active: false, location: @cmu)
-      @camp4 = FactoryGirl.create(:camp, curriculum: @endgames, start_date: Date.new(2014,7,21), end_date: Date.new(2014,7,26), time_slot: "pm", location: @cmu)
+      @camp4 = FactoryGirl.create(:camp, curriculum: @endgames, start_date: Date.new(2016,7,21), end_date: Date.new(2016,7,26), time_slot: "pm", location: @cmu)
     end
 
     def delete_camps
@@ -45,14 +45,14 @@ module Contexts
 
     def create_upcoming_camps
       # assumes create_more_curriculums prior
-      @camp20 = FactoryGirl.create(:camp, curriculum: @principles, start_date: Date.new(2014,6,2), end_date: Date.new(2014,6,6), time_slot: "am", location: @north)
-      @camp21 = FactoryGirl.create(:camp, curriculum: @nimzo, start_date: Date.new(2014,6,2), end_date: Date.new(2014,6,6), time_slot: "pm", location: @cmu)
-      @camp22 = FactoryGirl.create(:camp, curriculum: @positional, start_date: Date.new(2014,6,9), end_date: Date.new(2014,6,13), time_slot: "am", location: @cmu)
-      @camp23 = FactoryGirl.create(:camp, curriculum: @openings, start_date: Date.new(2014,6,9), end_date: Date.new(2014,6,13), time_slot: "pm", location: @cmu)
-      @camp24 = FactoryGirl.create(:camp, curriculum: @principles, start_date: Date.new(2014,6,16), end_date: Date.new(2014,6,20), time_slot: "am", location: @cmu)
-      @camp25 = FactoryGirl.create(:camp, curriculum: @adv_tactics, start_date: Date.new(2014,6,16), end_date: Date.new(2014,6,20), time_slot: "pm", location: @cmu)
-      @camp26 = FactoryGirl.create(:camp, curriculum: @principles, start_date: Date.new(2014,6,23), end_date: Date.new(2014,6,27), time_slot: "am", location: @cmu)
-      @camp27 = FactoryGirl.create(:camp, curriculum: @nimzo, start_date: Date.new(2014,6,23), end_date: Date.new(2014,6,27), time_slot: "pm", location: @cmu)
+      @camp20 = FactoryGirl.create(:camp, curriculum: @principles, start_date: Date.new(2016,6,2), end_date: Date.new(2016,6,6), time_slot: "am", location: @north)
+      @camp21 = FactoryGirl.create(:camp, curriculum: @nimzo, start_date: Date.new(2016,6,2), end_date: Date.new(2016,6,6), time_slot: "pm", location: @cmu)
+      @camp22 = FactoryGirl.create(:camp, curriculum: @positional, start_date: Date.new(2016,6,9), end_date: Date.new(2016,6,13), time_slot: "am", location: @cmu)
+      @camp23 = FactoryGirl.create(:camp, curriculum: @openings, start_date: Date.new(2016,6,9), end_date: Date.new(2016,6,13), time_slot: "pm", location: @cmu)
+      @camp24 = FactoryGirl.create(:camp, curriculum: @principles, start_date: Date.new(2016,6,16), end_date: Date.new(2016,6,20), time_slot: "am", location: @cmu)
+      @camp25 = FactoryGirl.create(:camp, curriculum: @adv_tactics, start_date: Date.new(2016,6,16), end_date: Date.new(2016,6,20), time_slot: "pm", location: @cmu)
+      @camp26 = FactoryGirl.create(:camp, curriculum: @principles, start_date: Date.new(2016,6,23), end_date: Date.new(2016,6,27), time_slot: "am", location: @cmu)
+      @camp27 = FactoryGirl.create(:camp, curriculum: @nimzo, start_date: Date.new(2016,6,23), end_date: Date.new(2016,6,27), time_slot: "pm", location: @cmu)
     end
 
     def delete_upcoming_camps

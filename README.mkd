@@ -1,13 +1,11 @@
-## 67-272: Chess Camp Phase 5 Starter ##
+This web application was a final term project for my 67-272 Application Design and Development class at Carnegie Mellon University. The course taught concepts and techniques to design and develop software applications, and to understand the design process.
 
-#I have a general home page for the website as a design decision to give the ChessCamp Website a better
-look and feel. General users can still view upcoming camps within one click.
+The chess camp system helps manage information about different students, curriculums and various camps being offered by the A & M Chess Camp Company. Administrators, instructors and guest users have different access rights to pages on the chess camp website. Guest users are not required to log into the application while instructors and admins are. To access an instructor account log in with username:mike password:secret. To access an admin account log in with username:alex password:secret. Both admin and Instructors are presented a user specific Dashboard upon login.
 
-#I used a datepicker for the Camp form which causes those cucumber tests to fail. However,
-The form is fully functional with update/create abilities.
+This web application was created using Ruby on Rails, and tested using FactoryGirl and cucumber tests.
 
-#Unit tests seem to change every time I run them. If there is ever an error it involves the following.
- undefined method `delete' for nil:NilClass
-        Exception `NoMethodError' at:
-        test/sets/location_contexts.rb:13:in `delete_active_locations'
-At times all my tests pass, however, I believe this is an error on google's part as locations always causes the issue 
+Clone in desktop, bundle install gems and run rails server in order to view the web-based application.
+
+#For testing Purposes#
+I used a datepicker for the Camp form which causes those cucumber tests to fail. However, The form is fully functional with update/create abilities.
+

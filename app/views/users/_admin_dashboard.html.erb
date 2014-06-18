@@ -32,7 +32,9 @@
 		        <strong><%= Instructor.active.size %></strong> active instructors <br>
 		        <strong><%= Family.active.size %></strong> active families <br>
 		        <strong><%= Student.active.size %></strong> active students <br>
+		        <% if@upcoming_camps.size >0 %>
 		        <strong><%= @upcoming_registrations / @upcoming_camps.size%></strong> average registrations per camp <br>
+		        <% end %>
 		    </div>
 		    <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
 		    <p>&nbsp;</p>
