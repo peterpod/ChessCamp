@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @full_registrations = Registration.by_student.paid.paginate(:page => params[:page]).per_page(10)
     @instructor_assignments = Instructor.all.paginate(:page => params[:page]).per_page(10)
     @user = current_user
+    @upcoming_registrations = 0
+    @upcoming_camps.each do |camp|
+      @upcoming_registrations += camp.registrations.size
+    end
   end
 
   def show

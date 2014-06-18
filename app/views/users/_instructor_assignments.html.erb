@@ -9,10 +9,12 @@
 
 <table class="table">
   <tr>
-    <th width="200">Instructor Name</th>
-    <th width="200">Phone</th>
-    <th width="400">Camps</th>
-    <% if can? :edit, Registration %>
+    <th width="160">Instructor Name</th>
+    <th width="180">Phone</th>
+    <th width="180">Email</th>
+    <th width="80">Camps</th>
+    <th width="80"></th>
+    <% if can? :update, Instructor %>
     <th></th>
     <% end %>
   </tr>
@@ -21,24 +23,14 @@
   <tr>
     <td><%= link_to instructor.name, instructor_path(instructor) %></td>
     <td align="center"><%= number_to_phone instructor.phone %></td>
-    <td aligh="center">
-     <% if instructor.camps != nil || instructor.active == false %>
-        <% for camp in instructor.camps %>
-            <% if camp == instructor.camps.last %>
-              <%= link_to camp.name, camp_path(camp) %>
-              <%= camp.start_date.strftime("%m/%d/%y") %> 
-              </br>
-            <% else %>
-              <%= link_to camp.name, camp_path(camp) %>
-              <%= camp.start_date.strftime("%m/%d/%y") %> 
-              </br>
-            <% end %>
-        <% end %>
+    <td align="center"><%=  mail_to instructor.email, instructor.email, encode: "javascript" %></td>
+    <td align="center"><%= instructor.camps.size %></td>
+     <% if instructor.active == true %>
+          <td><span class="label round success">Active</span></td>
       <% else %>
-        No Instructor Assignments
-      <% end %>
-    </td>
-    <% if can? :edit, Registration %>
+          <td><span class="label round secondary">Inactive</span></td>
+     <% end %>
+    <% if can? :update, Instructor %>
       <td><%= link_to 'Edit', edit_instructor_path(instructor), class: "button tiny radius" %></td>
     <% end %>
   </tr>

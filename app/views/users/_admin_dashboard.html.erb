@@ -14,19 +14,38 @@
 	    <li><a href="#tabs-4">Camps</a></li>
 	  </ul>
 	  <div id="tabs-1">
+	  	<div class="content">
 	    <%= render :partial => 'deposit_registrations' %>
+	    </div>
 	  </div>
 	  <div id="tabs-2">
+	    <div class="content">
 	    <%= render :partial => 'full_registrations' %>
+	    </div>
 	  </div>
 	  <div id="tabs-3">
+	  	<div class="content">
 	    <%= render :partial => 'instructor_assignments' %>
+	    </div>
 	  </div>
 	  <div id="tabs-4">
+	  	</br>
+	  	</br>
+	  	<div class="content">
+      	<div class="panel clearfix">
+	      <h5><strong>Camp statistics</strong></h5>
+	      <p>
+	        <strong><%= @upcoming_camps.size %></strong> upcoming camps <br>
+	        <strong><%= Instructor.active.size %></strong> active instructors <br>
+	        <strong><%= Family.active.size %></strong> active families <br>
+	        <strong><%= Student.active.size %></strong> active students <br>
+	        <strong><%= @upcoming_registrations / @upcoming_camps.size%></strong> average registrations per camp <br>
+	    </div>
 	    <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
 	    <p>&nbsp;</p>
 	    <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
 	    <br />
+	    </div>
 	  </div>
 	</div>
 </div>

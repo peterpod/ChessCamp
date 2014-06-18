@@ -103,8 +103,7 @@ a img {
 }
 
 a:hover {
-  color: #3A91FF;
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer, .push {
@@ -372,4 +371,7 @@ padding: 3px 6px;
 list-style: none; 
 text-decoration: none;
 border: 1px solid #ccc; 
+}
+#tabs li a:hover{
+  background-color: #f2f2f2; 
 }

@@ -1,7 +1,7 @@
 <h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
 <p class="supertiny">&nbsp;</p>
 
-<% unless @instructors.nil? %>
+<% unless @instructors.size==0 %>
 	<p><em><strong>Instructors matching term '<%= @query %>'</strong></em></p>
 	<ul>
 		<% for instructor in @instructors do %>
@@ -11,7 +11,7 @@
 	<p class="smtext">&nbsp;</p>
 <% end %>
 
-<% unless @students.nil? %>
+<% unless @students.size==0 %>
 	<p><em><strong>Students matching term '<%= @query %>'</strong></em></p>
 	<ul>
 		<% for student in @students do %>

@@ -1,7 +1,7 @@
 <%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
    <h3><%= controller.action_name.capitalize %> Registration</h3>
     <%= f.input :camp_id, collection: Camp.active.alphabetical, :label_method => lambda { |camp| "#{camp.name} | #{camp.start_date} | #{camp.time_slot}"} , include_blank: true, prompt: "Select camp..." %>
-    <%= f.input :student_id, collection: Student.active.alphabetical, include_blank: true, prompt: "Select Student..." %>
+    <%= f.input :student_id, collection: @students, prompt: "Select Student..." %>
     <%= f.input :payment_status, collection: [['Deposit','deposit'],['Full','full']], prompt: "Select payment_status..." %>
     <%= f.input :points_earned %>
     

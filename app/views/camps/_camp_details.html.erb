@@ -32,6 +32,11 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @camp.active ? "Yes" : "No" %><br /><br />
 
+<% if can? :create, Registration %>
+  <%= link_to "Register student for this camp", new_registration_path(camp_id: @camp.id), class: "button secondary tiny radius" %>&nbsp;
+<% end %>
+
+</br>
 
 <% if can? :edit, Camp %>
   <%= link_to "Edit this camp", edit_camp_path(@camp), class: "button tiny radius" %>&nbsp;&nbsp;
