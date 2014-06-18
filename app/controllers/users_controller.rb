@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @upcoming_camps.each do |camp|
       @upcoming_registrations += camp.registrations.size
     end
+    if (current_user != nil) && (current_user.role == "instructor") 
+      @instructor_camps = current_user.instructor.camps.upcoming.chronological.paginate(:page => params[:page]).per_page(5)
+    end
   end
 
   def show
